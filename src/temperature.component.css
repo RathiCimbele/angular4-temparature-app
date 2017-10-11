@@ -1,0 +1,22 @@
+.temperature{
+  font-weight:bold;  
+  padding-top:10px; 
+  display: inline;
+}
+.row-margin{
+  margin-left:20px;
+}
+.pad-top{
+ padding-top:10px;
+ }
+ .display-median{
+  padding-top:5px;
+  padding-left:5px;
+  font-weight:bold;
+ }
+ .error-msg{
+   color:red;
+ }
+ .temp-container span:last-child .list-comma{
+  display: none;
+}
