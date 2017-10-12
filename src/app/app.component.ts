@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';....
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,8 +11,11 @@ export class AppComponent  {
   maxSize : number = 8;
   usedSize : number = 0;
   temperatureMonitorList : number[] = [];
+  red :string;
+  squares :any[] = [1,2,3];
   median : number = undefined;
   errorMsg : String = "";
+  divColor : String = "Red";
   constructor() { }
   temperatureForm: FormGroup;
   ngOnInit() {
@@ -34,6 +37,11 @@ export class AppComponent  {
   }
   clearForm(){
     this.temperatureForm.reset();
+  }
+
+  setColor(){
+    this.divColor = this.divColor == "Red" ? "Blue" : "Red";
+    console.log(this.divColor);
   }
 
   isValidTemparature(temperatureValue){
