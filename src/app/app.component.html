@@ -1,3 +1,48 @@
-<div class="square"  [ngStyle]="{'background-color' : divColor }" 
-*ngFor="let square of [1,2,3] " (click)="setColor()">
- </div>
+<!-- main container-->
+<div class="container-fluid row-margin">
+    <!-- header-->  
+     <div class="row header">
+       <h1>Temperature Monitor</h1>
+     </div>
+     <!-- end of header-->
+     <div class="row">  
+          <!-- form group submit-->          
+          <form [formGroup]="temperatureForm">
+            <div class="form-group">
+            <label for="temperature" class="temperature">Add Temperature :</label> 
+            <input id="temperature" type="number"  class="form-control"
+            formControlName="temperature"
+            placeholder="Enter temperature"
+            required
+             /> 
+             <span id="max_error" class="error-msg" *ngIf="errorMsg != ''">
+               <h3>{{errorMsg}}</h3> 
+             </span>
+             <span *ngIf="temperature.invalid && (temperature.dirty || temperature.touched)"
+                class="col-md-3 col-lg-3">
+               <span class="error-msg" *ngIf="temperature.errors.required">
+                 Temperature is required.
+               </span>
+             
+            </span>     
+             </div>        
+          </form>
+          <!-- end of form-->
+      </div>
+      <div class="row">
+          <button (click)="recordTemperature()" class="btn btn-primary">Add</button>
+      </div>
+     <!-- <div class=" pad-top row temp-container">
+        [ <span *ngFor = "let temperature of temperatureMonitorList">{{temperature}}<span class="list-comma">, </span></span> ]
+        </div>-->
+      <div class="row pad-top">
+            <progress value={{usedSize}} max="{{maxSize}}"></progress>
+            <span>  {{usedSize}} / {{maxSize}} </span></div>  
+        
+      <div class="row pad-top">
+          <button (click)="getCurrentMedian()" class="btn btn-primary">Get Median Temperature</button>
+          &nbsp;<span class="display-median">Current Median:{{median}}</span>
+      </div>
+      <p class="row pad-top">Developer Name:-- Rathi--</p>
+  </div>
+  <!-- end of maincontainer-->
